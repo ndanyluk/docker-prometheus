@@ -27,7 +27,7 @@ install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
   - curl -sLO https://github.com/multiarch/qemu-user-static/releases/download/v${qemu_version}/qemu-${qemu_arch}-static.tar.gz;
   - tar -xzvf qemu-${qemu_arch}-static.tar.gz;
-  - curl -sLO https://github.com/prometheus/promtheus/releases/download/v${target_version}/sha256sums.txt
+  - curl -sLO https://github.com/prometheus/prometheus/releases/download/v${target_version}/sha256sums.txt
   - curl -sLO https://github.com/prometheus/prometheus/releases/download/v${target_version}/prometheus-${target_version}.${target_platform}-${target_arch}.tar.gz;
   - if [ ! -z "$(sha256sum -c sha256sums.txt 2> /dev/null | grep OK)" ]; then
       tar -xzvf prometheus-${target_version}.${target_platform}-${target_arch}.tar.gz;
