@@ -31,7 +31,7 @@ install:
   - curl -sLO https://github.com/prometheus/prometheus/releases/download/v${target_version}/prometheus-${target_version}.${target_platform}-${target_arch}.tar.gz;
   - if [ ! -z "$(sha256sum -c sha256sums.txt 2> /dev/null | grep OK)" ]; then
       tar -xzvf prometheus-${target_version}.${target_platform}-${target_arch}.tar.gz;
-      cp prometheus-${target_version}.${target_platform}-${target_arch}/* .;
+      cp -r prometheus-${target_version}.${target_platform}-${target_arch}/* .;
     fi;
   - rm prometheus-${target_version}.${target_platform}-${target_arch}.tar.gz
   - rm -rf prometheus-${target_version}.${target_platform}-${target_arch}
