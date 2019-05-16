@@ -1,4 +1,6 @@
-FROM alpine:3.9.3
+FROM arm32v6/alpine:3.9.4
+
+COPY qemu-arm-static     /usr/bin/
 
 COPY prometheus          /bin/prometheus
 COPY promtool            /bin/promtool
