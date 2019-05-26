@@ -46,8 +46,8 @@ jobs:
       after_success:
         - if [ -z "$DOCKER_USER" ]; then
             echo "PR build, skipping Docker Hub push";
-#          elif [ "$TRAVIS_BRANCH" != "master" ]; then
-#            echo "Branch build, skipping Docker Hub push";
+            elif [ "$TRAVIS_BRANCH" != "master" ]; then
+            echo "Branch build, skipping Docker Hub push";
           else
             docker login -u "$DOCKER_USER" -p "$DOCKER_PASS";
             docker tag ndanyluk/prometheus-${target_arch}:$TRAVIS_BUILD_NUMBER ndanyluk/prometheus-${target_arch}:${target_version};
