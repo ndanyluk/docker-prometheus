@@ -60,7 +60,6 @@ after_success:
 jobs:
   include:
     - stage: deploy
-      before_install: skip
       install: skip
       script: skip
       after_success:
