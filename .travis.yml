@@ -22,7 +22,9 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
   - mkdir $HOME/.docker
-  - echo -e "{\n  \"experimental\": \"true\"\n}" > $HOME/.docker/config.json
+  - echo '{' > $HOME/.docker/config.json
+  - echo '  "experimental": "true"' >> $HOME/.docker/config.json
+  - echo '}' >> $HOME/.docker/config.json
   - sudo service docker restart
 
 install:
