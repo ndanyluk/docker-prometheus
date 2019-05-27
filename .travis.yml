@@ -21,6 +21,7 @@ before_install:
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
+  - echo -e "{\n  \"experimental\": \"true\"\n}" > $HOME/.docker/config.json
   - sudo service docker restart
 
 install:
@@ -59,7 +60,10 @@ after_success:
 jobs:
   include:
     - stage: deploy
-      script:
+      before_install: skip
+      install: skip
+      script: skip
+      after_success:
         - if [ -z "$DOCKER_USER" ]; then
             echo "PR build, skipping Docker Hub push";
           elif [ "$TRAVIS_BRANCH" != "master" ]; then
