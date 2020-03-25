@@ -1,4 +1,4 @@
-FROM alpine:3.9.4
+FROM alpine:3.11.5
 
 #COPY qemu-x86_64-static  /usr/bin/
 
